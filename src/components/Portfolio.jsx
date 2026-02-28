@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useDataContext from "../contexts/DataContext";
 
@@ -11,10 +11,19 @@ const Portfolio = () => {
   return (
     <section className="bg-gray-50" aria-labelledby="portfolio-heading">
       <div className="max-w-7xl mx-auto px-4 py-14">
+        <header className="text-center mb-12">
+          <h2
+            id="portfolio-heading"
+            className="relative font-semibold uppercase text-2xl sm:text-3xl"
+          >
+            my work
+          </h2>
+        </header>
+
         <div className="relative group" onMouseLeave={() => setImage(null)}>
           <ul>
             {websites?.map((item, index) => (
-              <li key={index}>
+              <li key={`${item.title}-${index}`}>
                 <Link
                   to={item.websiteURL}
                   target="_blank"
@@ -36,7 +45,7 @@ const Portfolio = () => {
                       focus-visible:after:translate-y-0
                     "
                   >
-                    <h3 className="relative z-10 uppercase font-bold text-5xl mb-3">
+                    <h3 className="relative z-10 uppercase font-bold text-3xl sm:text-4xl md:text-5xl mb-3">
                       {item.title}
                     </h3>
                   </article>
@@ -49,18 +58,18 @@ const Portfolio = () => {
           {image && (
             <aside
               className="
-                hidden fixed bottom-[40vh] right-[10vw]
-                z-30 group-hover:block
-                shadow-xl w-full max-w-125 aspect-video
+                hidden lg:block fixed bottom-[40vh] right-[10vw]
+                z-30 shadow-xl w-full max-w-[500px] aspect-video
               "
               aria-hidden="true"
             >
               <figure className="w-full h-full overflow-hidden rounded-md">
                 <img
                   src={image}
-                  alt="Project preview"
+                  alt="Project preview screenshot"
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </figure>
             </aside>
