@@ -1,0 +1,69 @@
+{
+  "navigation": [
+    {
+      "name": "home",
+      "href": "/"
+    },
+    {
+      "name": "portfolio",
+      "href": "/portfolio"
+    },
+    {
+      "name": "services",
+      "href": "/services"
+    },
+    {
+      "name": "contact us",
+      "href": "/contact"
+    }
+  ],
+  "socials": [
+    {
+      "icon": "/svg/socials/linkedin.svg",
+      "link": "https://www.linkedin.com/company/nuvexa-india",
+      "label": "LinkedIn"
+    },
+    {
+      "icon": "/svg/socials/github.svg",
+      "link": "https://www.instagram.com/nuvexa_india",
+      "label": "Instagram"
+    },
+    {
+      "icon": "/svg/socials/instagram.svg",
+      "link": "https://www.instagram.com/nuvexa_india",
+      "label": "Instagram"
+    }
+  ],
+  "websites": [
+    {
+      "websiteURL": "https://nuvexaindia.com/",
+      "title": "Nuvexa India Solutions LLP",
+      "description": "Nuvexa India Solutions LLP provides IT solutions, software development, digital marketing, and HR services to help businesses grow and operate efficiently.",
+      "image": "/images/websites/nuvexaindia.png"
+    },
+    {
+      "websiteURL": "https://navilshipping.com/",
+      "title": "Navil Shipping & Logistics",
+      "description": "Navil Shipping provides reliable global shipping, freight forwarding, and logistics solutions tailored to international trade requirements.",
+      "image": "/images/websites/navilshipping.png"
+    },
+    {
+      "websiteURL": "https://petroflexfze.com/",
+      "title": "Petroflex FZE",
+      "description": "Petroflex FZE specializes in petrochemical trading, supplying high-quality industrial and energy-related products across global markets.",
+      "image": "/images/websites/petroflexfze.png"
+    },
+    {
+      "websiteURL": "https://fortifytrdllc.com/",
+      "title": "Fortify Trading LLC",
+      "description": "Fortify Trading LLC delivers dependable trading solutions, focusing on quality sourcing, efficient logistics, and long-term business partnerships.",
+      "image": "/images/websites/fortifytrdllc.png"
+    },
+    {
+      "websiteURL": "https://elviorallc.com/",
+      "title": "Elviora LLC",
+      "description": "Elviora LLC is a diversified trading company offering premium products and services with a strong commitment to reliability and excellence.",
+      "image": "/images/websites/elviorallc.png"
+    }
+  ]
+}
