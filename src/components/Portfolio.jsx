@@ -59,7 +59,7 @@ const Portfolio = () => {
             <aside
               className="
                 hidden lg:block fixed bottom-[40vh] right-[10vw]
-                z-30 shadow-xl w-full max-w-[500px] aspect-video
+                z-30 shadow-xl w-full max-w-125 aspect-video
               "
               aria-hidden="true"
             >
