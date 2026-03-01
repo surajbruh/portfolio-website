@@ -21,19 +21,38 @@ const TechStack = () => {
           </h2>
         </header>
 
-        <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
-          {iconList.map((icon, index) => (
-            <li key={`${icon}-${index}`}>
-              <img
-                className="aspect-square w-10 sm:w-12 md:w-14 object-contain"
-                src={icon}
-                alt="Technology logo"
-                loading="lazy"
-                decoding="async"
-              />
-            </li>
-          ))}
-        </ul>
+        <div className="inline-flex w-full flex-nowrap overflow-hidden mask-[linear-gradient(to_right,transparent_0,black_128px,black_calc(100%-128px),transparent_100%)]">
+          <ul className="animate-infinite-scroll flex items-center shrink-0">
+            {iconList.map((icon, index) => (
+              <li key={`tech-${index}`}>
+                <img
+                  className="aspect-square min-w-10 sm:min-w-12 md:min-w-14 mx-8 object-contain"
+                  src={icon}
+                  alt="Technology logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
+
+          <ul
+            className="animate-infinite-scroll flex items-center shrink-0"
+            aria-hidden="true"
+          >
+            {iconList.map((icon, index) => (
+              <li key={`tech-duplicate-${index}`}>
+                <img
+                  className="aspect-square min-w-10 sm:min-w-12 md:min-w-14 mx-8 object-contain"
+                  src={icon}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

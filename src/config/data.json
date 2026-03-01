@@ -80,5 +80,47 @@
       "role": "Website Development & Domain Setup",
       "technologies": "React, TailwindCSS, Git, Vite"
     }
+  ],
+  "technologies": [
+    {
+      "icon": "/svg/technologies/html.svg",
+      "label": "html"
+    },
+    {
+      "icon": "/svg/technologies/css.svg",
+      "label": "css"
+    },
+    {
+      "icon": "/svg/technologies/javascript.svg",
+      "label": "javascript"
+    },
+    {
+      "icon": "/svg/technologies/react.svg",
+      "label": "react"
+    },
+    {
+      "icon": "/svg/technologies/nodejs.svg",
+      "label": "nodejs"
+    },
+    {
+      "icon": "/svg/technologies/express.svg",
+      "label": "express"
+    },
+    {
+      "icon": "/svg/technologies/mongodb.svg",
+      "label": "mongodb"
+    },
+    {
+      "icon": "/svg/technologies/tailwind.svg",
+      "label": "tailwind"
+    },
+    {
+      "icon": "/svg/technologies/git.svg",
+      "label": "git"
+    },
+    {
+      "icon": "/svg/technologies/docker.svg",
+      "label": "docker"
+    }
   ]
 }
