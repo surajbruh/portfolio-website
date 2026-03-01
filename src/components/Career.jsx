@@ -23,11 +23,11 @@ const Career = () => {
           <div>
             {experiences?.map((experience, index) => (
               <div className="mb-10" key={`${experience.company}-${index}`}>
-                <h3 className="capitalize font-semibold text-xl sm:text-2xl md:text-3xl">
+                <h3 className="uppercase font-semibold text-xl sm:text-2xl md:text-3xl">
                   {experience.company}
                 </h3>
 
-                <p className="text-base sm:text-lg font-medium">
+                <p className="uppercase text-base sm:text-lg font-medium">
                   {experience.role}
                 </p>
 
