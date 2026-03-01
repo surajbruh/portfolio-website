@@ -23,8 +23,8 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className="shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="">
+        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
           <NavLink
             to="/"
             aria-label="Suraj Yadav portfolio home"
@@ -37,7 +37,7 @@ const Header = () => {
 
           {/* Social Links */}
           <nav className="ml-auto" aria-label="Social media links">
-            <ul className="flex items-center gap-3 sm:gap-4 px-4 py-2 bg-gray-100 rounded-full border border-gray-200">
+            <ul className="flex items-center gap-3 sm:gap-4 px-4 py-2">
               {socials?.map((social, index) => (
                 <li key={`${social.label}-${index}`}>
                   <a
