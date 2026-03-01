@@ -118,5 +118,32 @@
       "icon": "/svg/technologies/git.svg",
       "label": "git"
     }
+  ],
+  "experiences": [
+    {
+      "company": "Nuvexa India Solutions LLP",
+      "role": "Web Developer Intern",
+      "startDate": "Nov 2025",
+      "endDate": "Present",
+      "points": [
+        "Manage domain purchases and configurations using providers such as Namecheap and GoDaddy.",
+        "Set up and manage professional business email services including Google Workspace and Titan Mail for clients.",
+        "Develop responsive business websites with a primary focus on frontend development.",
+        "Deploy client websites using Hostinger hosting infrastructure.",
+        "Successfully delivered 5–6 client projects including domain management, email setup, and website development."
+      ]
+    },
+    {
+      "company": "Athena BPO Pvt Ltd",
+      "role": "Telemarketing Sales Executive",
+      "startDate": "Jul 2024",
+      "endDate": "Feb 2025",
+      "points": [
+        "Handled customer queries and provided product guidance over phone calls.",
+        "Promoted and sold financial products including Recurring Deposits and SIP investment plans.",
+        "Worked on the Standard Chartered Bank (SCB) process for customer outreach and sales.",
+        "Maintained professional communication with customers while achieving sales targets."
+      ]
+    }
   ]
 }
