@@ -1,9 +1,19 @@
 import useDataContext from "../contexts/DataContext";
-
-// todo: add infinite scrolling animation later. import icons via json so i can arrange them.
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(useGSAP);
 
 const TechStack = () => {
   const { technologies } = useDataContext();
+
+  useGSAP(() => {
+    gsap.to(".scroller", {
+      x: "-100%",
+      duration: 5,
+      ease: "none",
+      repeat: -1,
+    });
+  }, []);
 
   return (
     <section aria-labelledby="techstack-heading">
@@ -18,7 +28,7 @@ const TechStack = () => {
         </header>
 
         <div className="inline-flex w-full flex-nowrap overflow-hidden mask-[linear-gradient(to_right,transparent_0,black_128px,black_calc(100%-128px),transparent_100%)]">
-          <ul className="animate-infinite-scroll flex items-center shrink-0">
+          <ul className="scroller flex items-center shrink-0">
             {technologies?.map((item, index) => (
               <li key={`tech-${item.label}-${index}`}>
                 <img
@@ -33,7 +43,7 @@ const TechStack = () => {
           </ul>
 
           <ul
-            className="animate-infinite-scroll flex items-center shrink-0"
+            className="scroller flex items-center shrink-0"
             aria-hidden="true"
           >
             {technologies?.map((item, index) => (
