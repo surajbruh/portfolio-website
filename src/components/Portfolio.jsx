@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useDataContext from "../contexts/DataContext";
 
-// todo: add animation, make the preview follow mouse pointer
-
 const Portfolio = () => {
   const { websites } = useDataContext();
+
   const [image, setImage] = useState(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    image && window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [image]);
 
   return (
     <section className="bg-gray-50" aria-labelledby="portfolio-heading">
@@ -16,7 +31,7 @@ const Portfolio = () => {
             id="portfolio-heading"
             className="relative font-semibold uppercase text-2xl sm:text-3xl"
           >
-            my work
+            My Work
           </h2>
         </header>
 
@@ -40,9 +55,8 @@ const Portfolio = () => {
                       after:absolute after:inset-0
                       after:bg-(--accent-color)
                       after:-translate-y-full
-                      after:transition-transform after:duration-300 after:ease-in-out
+                      after:transition-transform after:duration-300
                       hover:after:translate-y-0
-                      focus-visible:after:translate-y-0
                     "
                   >
                     <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -50,14 +64,12 @@ const Portfolio = () => {
                         <h3 className="uppercase font-bold text-2xl sm:text-3xl md:text-5xl mb-2">
                           {item.title}
                         </h3>
-                        <span className="text-sm sm:text-base">
-                          {item.year}
-                        </span>
+                        <span>{item.year}</span>
                       </div>
 
-                      <div className="uppercase max-w-full sm:max-w-xs">
-                        <p className="text-lg sm:text-xl">{item.role}</p>
-                        <p className="text-sm sm:text-base max-w-50 overflow-hidden whitespace-nowrap text-ellipsis">
+                      <div className="uppercase sm:max-w-xs">
+                        <p className="text-lg">{item.role}</p>
+                        <p className="text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                           {item.technologies}
                         </p>
                       </div>
@@ -68,14 +80,16 @@ const Portfolio = () => {
             ))}
           </ul>
 
-          {/* Image Preview */}
           {image && (
             <aside
-              className="
-                hidden lg:block fixed bottom-[40vh] right-[10vw]
-                z-30 shadow-xl w-full max-w-125 aspect-video
-              "
-              aria-hidden="true"
+              style={{
+                position: "fixed",
+                top: position.y + 20,
+                left: position.x + 20,
+                pointerEvents: "none",
+                zIndex: 30,
+              }}
+              className="hidden lg:block w-full max-w-125 aspect-video shadow-xl"
             >
               <figure className="w-full h-full overflow-hidden rounded-md">
                 <img
