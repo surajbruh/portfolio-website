@@ -38,32 +38,47 @@
     {
       "websiteURL": "https://nuvexaindia.com/",
       "title": "Nuvexa India Solutions LLP",
-      "description": "Nuvexa India Solutions LLP provides IT solutions, software development, digital marketing, and HR services to help businesses grow and operate efficiently.",
-      "image": "/images/websites/nuvexaindia.png"
+      "description": "Nuvexa India Solutions LLP offers comprehensive IT solutions, including software development, digital marketing, and HR services designed to help businesses streamline operations and accelerate growth in a competitive digital environment.",
+      "image": "/images/websites/nuvexaindia.png",
+      "year": 2024,
+      "role": "Development & Website Deployment",
+      "technologies": "React, TailwindCSS, Git, Vite"
     },
     {
       "websiteURL": "https://navilshipping.com/",
       "title": "Navil Shipping & Logistics",
-      "description": "Navil Shipping provides reliable global shipping, freight forwarding, and logistics solutions tailored to international trade requirements.",
-      "image": "/images/websites/navilshipping.png"
+      "description": "Navil Shipping & Logistics delivers reliable freight forwarding, international shipping, and end-to-end logistics solutions that support efficient global trade and supply chain management.",
+      "image": "/images/websites/navilshipping.png",
+      "year": 2024,
+      "role": "Domain Administration & Frontend Development",
+      "technologies": "React, TailwindCSS, Git, Vite"
     },
     {
       "websiteURL": "https://petroflexfze.com/",
       "title": "Petroflex FZE",
-      "description": "Petroflex FZE specializes in petrochemical trading, supplying high-quality industrial and energy-related products across global markets.",
-      "image": "/images/websites/petroflexfze.png"
+      "description": "Petroflex FZE is a global petrochemical trading company specializing in the supply and distribution of high-quality energy and industrial raw materials for international markets.",
+      "image": "/images/websites/petroflexfze.png",
+      "year": 2024,
+      "role": "Website Development & Technical Setup",
+      "technologies": "React, TailwindCSS, Git, Vite"
     },
     {
       "websiteURL": "https://fortifytrdllc.com/",
       "title": "Fortify Trading LLC",
-      "description": "Fortify Trading LLC delivers dependable trading solutions, focusing on quality sourcing, efficient logistics, and long-term business partnerships.",
-      "image": "/images/websites/fortifytrdllc.png"
+      "description": "Fortify Trading LLC provides dependable international trading services, focusing on strategic sourcing, efficient logistics, and building long-term partnerships with clients worldwide.",
+      "image": "/images/websites/fortifytrdllc.png",
+      "year": 2025,
+      "role": "Frontend Development & Deployment",
+      "technologies": "React, TailwindCSS, Git, Vite"
     },
     {
       "websiteURL": "https://elviorallc.com/",
       "title": "Elviora LLC",
-      "description": "Elviora LLC is a diversified trading company offering premium products and services with a strong commitment to reliability and excellence.",
-      "image": "/images/websites/elviorallc.png"
+      "description": "Elviora LLC is a diversified global trading company delivering premium products and reliable supply chain solutions with a strong focus on quality, efficiency, and customer satisfaction.",
+      "image": "/images/websites/elviorallc.png",
+      "year": 2025,
+      "role": "Website Development & Domain Setup",
+      "technologies": "React, TailwindCSS, Git, Vite"
     }
   ]
 }

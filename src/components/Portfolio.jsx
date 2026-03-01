@@ -45,9 +45,23 @@ const Portfolio = () => {
                       focus-visible:after:translate-y-0
                     "
                   >
-                    <h3 className="relative z-10 uppercase font-bold text-3xl sm:text-4xl md:text-5xl mb-3">
-                      {item.title}
-                    </h3>
+                    <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <div className="leading-tight">
+                        <h3 className="uppercase font-bold text-2xl sm:text-3xl md:text-5xl mb-2">
+                          {item.title}
+                        </h3>
+                        <span className="text-sm sm:text-base">
+                          {item.year}
+                        </span>
+                      </div>
+
+                      <div className="uppercase max-w-full sm:max-w-xs">
+                        <p className="text-lg sm:text-xl">{item.role}</p>
+                        <p className="text-sm sm:text-base max-w-50 overflow-hidden whitespace-nowrap text-ellipsis">
+                          {item.technologies}
+                        </p>
+                      </div>
+                    </div>
                   </article>
                 </Link>
               </li>
