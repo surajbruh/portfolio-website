@@ -111,16 +111,12 @@
       "label": "mongodb"
     },
     {
-      "icon": "/svg/technologies/tailwind.svg",
-      "label": "tailwind"
+      "icon": "/svg/technologies/tailwindcss.svg",
+      "label": "tailwindcss"
     },
     {
       "icon": "/svg/technologies/git.svg",
       "label": "git"
-    },
-    {
-      "icon": "/svg/technologies/docker.svg",
-      "label": "docker"
     }
   ]
 }

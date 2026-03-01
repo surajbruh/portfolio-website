@@ -1,17 +1,13 @@
-const icons = import.meta.glob("/src/assets/technologies/*.svg", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
+import useDataContext from "../contexts/DataContext";
 
 // todo: add infinite scrolling animation later. import icons via json so i can arrange them.
 
 const TechStack = () => {
-  const iconList = Object.values(icons);
+  const { technologies } = useDataContext();
 
   return (
     <section aria-labelledby="techstack-heading">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:py-14">
+      <div className="max-w-6xl mx-auto px-4 py-12 sm:py-14">
         <header className="text-center mb-12">
           <h2
             id="techstack-heading"
@@ -23,12 +19,12 @@ const TechStack = () => {
 
         <div className="inline-flex w-full flex-nowrap overflow-hidden mask-[linear-gradient(to_right,transparent_0,black_128px,black_calc(100%-128px),transparent_100%)]">
           <ul className="animate-infinite-scroll flex items-center shrink-0">
-            {iconList.map((icon, index) => (
-              <li key={`tech-${index}`}>
+            {technologies?.map((item, index) => (
+              <li key={`tech-${item.label}-${index}`}>
                 <img
-                  className="aspect-square min-w-10 sm:min-w-12 md:min-w-14 mx-8 object-contain"
-                  src={icon}
-                  alt="Technology logo"
+                  className="aspect-square w-full max-w-10 sm:max-w-12 md:max-w-14 mx-6 sm:mx-8 object-contain"
+                  src={item.icon}
+                  alt={`${item.label} logo`}
                   loading="lazy"
                   decoding="async"
                 />
@@ -40,11 +36,11 @@ const TechStack = () => {
             className="animate-infinite-scroll flex items-center shrink-0"
             aria-hidden="true"
           >
-            {iconList.map((icon, index) => (
-              <li key={`tech-duplicate-${index}`}>
+            {technologies?.map((item, index) => (
+              <li key={`tech-duplicate-${item.label}-${index}`}>
                 <img
-                  className="aspect-square min-w-10 sm:min-w-12 md:min-w-14 mx-8 object-contain"
-                  src={icon}
+                  className="aspect-square w-full max-w-10 sm:max-w-12 md:max-w-14 mx-6 sm:mx-8 object-contain"
+                  src={item.icon}
                   alt=""
                   loading="lazy"
                   decoding="async"
