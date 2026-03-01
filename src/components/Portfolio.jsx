@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useDataContext from "../contexts/DataContext";
+import gsap from "gsap";
 
 const Portfolio = () => {
   const { websites } = useDataContext();
 
   const [image, setImage] = useState(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursor = useRef(null);
+
+  const moveCursor = (e) => {
+    gsap.to(cursor.current, {
+      x: e.clientX + 20,
+      y: e.clientY + 20,
+      opacity: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-    };
-
-    image && window.addEventListener("mousemove", handleMouseMove);
-
+    image && window.addEventListener("mousemove", moveCursor);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", moveCursor);
     };
   }, [image]);
 
@@ -43,7 +46,6 @@ const Portfolio = () => {
                   to={item.websiteURL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Open project ${item.title}`}
                 >
                   <article
                     tabIndex={0}
@@ -64,11 +66,13 @@ const Portfolio = () => {
                         <h3 className="uppercase font-bold text-2xl sm:text-3xl md:text-5xl mb-2">
                           {item.title}
                         </h3>
-                        <span>{item.year}</span>
+                        <span className="italic">{item.year}</span>
                       </div>
 
                       <div className="uppercase sm:max-w-xs">
-                        <p className="text-lg">{item.role}</p>
+                        <p className="text-lg font-medium leading-tight">
+                          {item.role}
+                        </p>
                         <p className="text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                           {item.technologies}
                         </p>
@@ -82,22 +86,14 @@ const Portfolio = () => {
 
           {image && (
             <aside
-              style={{
-                position: "fixed",
-                top: position.y + 20,
-                left: position.x + 20,
-                pointerEvents: "none",
-                zIndex: 30,
-              }}
-              className="hidden lg:block w-full max-w-125 aspect-video shadow-xl"
+              ref={cursor}
+              className="fixed inset-0 pointer-events-none z-30 opacity-0 hidden lg:block w-125 aspect-video shadow-xl"
             >
               <figure className="w-full h-full overflow-hidden rounded-md">
                 <img
                   src={image}
                   alt="Project preview screenshot"
                   className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
                 />
               </figure>
             </aside>
