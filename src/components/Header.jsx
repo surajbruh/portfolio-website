@@ -1,10 +1,35 @@
+import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import useDataContext from "../contexts/DataContext";
 
+import gsap from "gsap";
+import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
+gsap.registerPlugin(ScrambleTextPlugin);
+
 const Header = () => {
   const { socials } = useDataContext();
+  const headerRef = useRef(null);
+  const headingRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  const handleMouseEnter = () => {
+    if (hasAnimated.current) return;
+    hasAnimated.current = true;
+    gsap.killTweensOf(headingRef.current);
+
+    gsap.to(headingRef.current, {
+      scrambleText: {
+        text: "Suraj Yadav.",
+        chars: "upperAndLowerCase",
+        revealDelay: 0.2,
+        tweenLength: true,
+      },
+      duration: 1,
+    });
+  };
+
   return (
-    <header className="">
+    <header ref={headerRef} className="">
       {/* Top Contact Bar */}
       <div className="bg-gray-100 font-mono text-sm">
         <div className="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
@@ -30,7 +55,11 @@ const Header = () => {
             aria-label="Suraj Yadav portfolio home"
             className="inline-flex items-center"
           >
-            <span className="uppercase font-mono font-semibold text-xl sm:text-2xl tracking-wide">
+            <span
+              onMouseEnter={handleMouseEnter}
+              ref={headingRef}
+              className="uppercase font-mono font-semibold text-xl sm:text-2xl tracking-wide"
+            >
               Suraj Yadav.
             </span>
           </NavLink>
