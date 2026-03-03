@@ -42,8 +42,7 @@ const Portfolio = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: container,
-            markers: true,
-            start: "top 85%",
+            start: "top 95%",
           },
         });
       });
