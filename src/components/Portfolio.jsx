@@ -2,14 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useDataContext from "../contexts/DataContext";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/src/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Portfolio = () => {
   const { websites } = useDataContext();
 
   const [image, setImage] = useState(null);
   const cursor = useRef(null);
+  const containers = useRef([]);
+  const secitonRef = useRef(null);
 
   const moveCursor = (e) => {
+    if (!cursor.current) return;
     gsap.to(cursor.current, {
       x: e.clientX + 20,
       y: e.clientY + 20,
@@ -26,8 +32,31 @@ const Portfolio = () => {
     };
   }, [image]);
 
+  useGSAP(
+    () => {
+      containers.current.forEach((container) => {
+        gsap.from(container, {
+          yPercent: 120,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: container,
+            markers: true,
+            start: "top 85%",
+          },
+        });
+      });
+    },
+    { scope: secitonRef },
+  );
+
   return (
-    <section className="bg-gray-50" aria-labelledby="portfolio-heading">
+    <section
+      ref={secitonRef}
+      className="bg-gray-50"
+      aria-labelledby="portfolio-heading"
+    >
       <div className="max-w-7xl mx-auto px-4 py-14">
         <header className="text-center mb-12">
           <h2
@@ -61,7 +90,10 @@ const Portfolio = () => {
                       hover:after:translate-y-0
                     "
                   >
-                    <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div
+                      ref={(el) => (containers.current[index] = el)}
+                      className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+                    >
                       <div className="leading-tight">
                         <h3 className="uppercase font-bold text-2xl sm:text-3xl md:text-5xl mb-2">
                           {item.title}
