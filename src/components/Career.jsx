@@ -1,25 +1,23 @@
+import { useState, useRef } from "react";
 import useDataContext from "../contexts/DataContext";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/src/ScrollTrigger";
-import { useState, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Career = () => {
   const { experiences } = useDataContext();
 
   const [image, setImage] = useState(null);
-
   const sectionRef = useRef(null);
-  const containers = useRef([]);
 
   useGSAP(
     () => {
-      // clear previous triggers
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      const containers = gsap.utils.toArray(".career-item");
+      if (!containers) return;
 
-      containers.current.forEach((container) => {
+      containers.forEach((container) => {
         ScrollTrigger.create({
           trigger: container,
           start: "top 45%",
@@ -68,9 +66,8 @@ const Career = () => {
           <div>
             {experiences?.map((experience, index) => (
               <div
-                ref={(el) => (containers.current[index] = el)}
                 data-image={experience.image}
-                className="pb-10 inactive"
+                className="career-item pb-10 inactive"
                 key={`${experience.company}-${index}`}
               >
                 <h3 className="career-title uppercase font-semibold text-xl sm:text-2xl md:text-3xl">
