@@ -22,7 +22,6 @@ const Career = () => {
           trigger: container,
           start: "top center",
           end: "bottom center",
-          markers: true,
 
           onEnter: () => activate(container),
           onEnterBack: () => activate(container),
