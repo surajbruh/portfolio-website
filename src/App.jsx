@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Portfolio from "./components/Portfolio";
 import TechStack from "./components/TechStack";
 import Career from "./components/Career";
+import Test from "./components/Test";
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       <Header />
       <main>
         <Hero />
-        <Career />
+        {/* <Career /> */}
+        <Test />
         <Portfolio />
         <TechStack />
       </main>
