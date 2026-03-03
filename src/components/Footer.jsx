@@ -1,16 +1,47 @@
 import { Link } from "react-router-dom";
 import useDataContext from "../contexts/DataContext";
 
+import gsap from "gsap";
+import ScrollTrigger from "gsap/src/ScrollTrigger";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
+
 const Footer = () => {
   const { navigation, socials } = useDataContext();
 
+  const sectionRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      if (!containerRef.current) return;
+      gsap.from(containerRef.current, {
+        yPercent: 120,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          once: true,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    },
+    { scope: sectionRef },
+  );
+
   return (
-    <footer className="relative bg-(--accent-color) overflow-hidden">
+    <footer
+      ref={sectionRef}
+      className="relative bg-(--accent-color) overflow-hidden"
+    >
       <div
         className="absolute bottom-[-15%] left-0 right-0 max-w-7xl mx-auto pointer-events-none select-none"
         aria-hidden="true"
       >
-        <h1 className="uppercase font-black text-white text-[clamp(3rem,10vw,10rem)] text-right leading-none">
+        <h1
+          ref={containerRef}
+          className="uppercase font-black text-white text-[clamp(3rem,10vw,10rem)] text-right leading-none"
+        >
           suraj
         </h1>
       </div>

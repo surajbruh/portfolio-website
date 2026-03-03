@@ -11,8 +11,7 @@ const Portfolio = () => {
 
   const [image, setImage] = useState(null);
   const cursor = useRef(null);
-  const containers = useRef([]);
-  const secitonRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const moveCursor = (e) => {
     if (!cursor.current) return;
@@ -34,25 +33,27 @@ const Portfolio = () => {
 
   useGSAP(
     () => {
-      containers.current.forEach((container) => {
+      const containers = gsap.utils.toArray(".container");
+      containers.forEach((container) => {
         gsap.from(container, {
-          yPercent: 120,
+          yPercent: 100,
           opacity: 0,
           duration: 1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: container,
-            start: "top 95%",
+            start: "top 100%",
+            once: true,
           },
         });
       });
     },
-    { scope: secitonRef },
+    { scope: sectionRef },
   );
 
   return (
     <section
-      ref={secitonRef}
+      ref={sectionRef}
       className="bg-gray-50"
       aria-labelledby="portfolio-heading"
     >
@@ -80,6 +81,7 @@ const Portfolio = () => {
                     onMouseEnter={() => setImage(item.image)}
                     onFocus={() => setImage(item.image)}
                     className="
+                      container
                       relative overflow-hidden px-4 py-5 border-b
                       after:content-['']
                       after:absolute after:inset-0
@@ -89,10 +91,7 @@ const Portfolio = () => {
                       hover:after:translate-y-0
                     "
                   >
-                    <div
-                      ref={(el) => (containers.current[index] = el)}
-                      className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
-                    >
+                    <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div className="leading-tight">
                         <h3 className="uppercase font-bold text-2xl sm:text-3xl md:text-5xl mb-2">
                           {item.title}
