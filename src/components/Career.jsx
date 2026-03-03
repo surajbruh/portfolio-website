@@ -20,8 +20,8 @@ const Career = () => {
       containers.forEach((container) => {
         ScrollTrigger.create({
           trigger: container,
-          start: "top 45%",
-          end: "bottom 55%",
+          start: "top center",
+          end: "bottom center",
           markers: true,
 
           onEnter: () => activate(container),
@@ -67,7 +67,7 @@ const Career = () => {
             {experiences?.map((experience, index) => (
               <div
                 data-image={experience.image}
-                className="career-item pb-10 inactive"
+                className="career-item inactive pb-10"
                 key={`${experience.company}-${index}`}
               >
                 <h3 className="career-title uppercase font-semibold text-xl sm:text-2xl md:text-3xl">
