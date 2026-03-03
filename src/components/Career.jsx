@@ -1,13 +1,58 @@
 import useDataContext from "../contexts/DataContext";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/src/ScrollTrigger";
+import { useState, useRef } from "react";
+gsap.registerPlugin(ScrollTrigger);
+
 const Career = () => {
   const { experiences } = useDataContext();
 
-  const uri =
-    "https://i.pinimg.com/736x/fc/f8/68/fcf8680186f7174793faef38b558215a.jpg";
+  const [image, setImage] = useState(null);
+
+  const sectionRef = useRef(null);
+  const containers = useRef([]);
+
+  useGSAP(
+    () => {
+      // clear previous triggers
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+      containers.current.forEach((container) => {
+        ScrollTrigger.create({
+          trigger: container,
+          start: "top 45%",
+          end: "bottom 55%",
+          markers: true,
+
+          onEnter: () => activate(container),
+          onEnterBack: () => activate(container),
+
+          onLeave: () => deactivate(container),
+          onLeaveBack: () => deactivate(container),
+        });
+      });
+
+      function activate(container) {
+        container.classList.add("active-career");
+        const img = container.getAttribute("data-image");
+        setImage(img);
+      }
+
+      function deactivate(container) {
+        container.classList.remove("active-career");
+      }
+    },
+    { scope: sectionRef, dependencies: [experiences] },
+  );
 
   return (
-    <section className="bg-gray-100" aria-labelledby="career-heading">
+    <section
+      ref={sectionRef}
+      className="bg-gray-100"
+      aria-labelledby="career-heading"
+    >
       <div className="mx-auto px-4 py-12 sm:py-14 max-w-7xl">
         <header className="text-center mb-12">
           <h2
@@ -22,16 +67,21 @@ const Career = () => {
           {/* left */}
           <div>
             {experiences?.map((experience, index) => (
-              <div className="mb-10" key={`${experience.company}-${index}`}>
-                <h3 className="uppercase font-semibold text-xl sm:text-2xl md:text-3xl">
+              <div
+                ref={(el) => (containers.current[index] = el)}
+                data-image={experience.image}
+                className="pb-10 inactive"
+                key={`${experience.company}-${index}`}
+              >
+                <h3 className="career-title uppercase font-semibold text-xl sm:text-2xl md:text-3xl">
                   {experience.company}
                 </h3>
 
-                <p className="uppercase text-base sm:text-lg font-medium">
+                <p className="career-role uppercase text-base sm:text-lg font-medium">
                   {experience.role}
                 </p>
 
-                <span className="italic text-sm sm:text-base text-gray-600 block">
+                <span className="italic text-sm sm:text-base block">
                   {experience.startDate} - {experience.endDate}
                 </span>
 
@@ -71,7 +121,7 @@ const Career = () => {
           <div className="hidden sm:flex items-center justify-center">
             <img
               className="shadow-md aspect-square max-h-120 w-full max-w-md object-cover rounded-2xl"
-              src={uri}
+              src={image || experiences?.[0]?.image}
               alt="Highlighted project preview"
               loading="lazy"
               decoding="async"

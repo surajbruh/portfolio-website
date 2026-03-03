@@ -16,4 +16,19 @@
   :root {
     --accent-color: #d0e0e3;
   }
+
+  .inactive .career-title,
+  .inactive .career-role,
+  .inactive span,
+  .inactive li span {
+    color: #9ca3af;
+    transition: color 0.3s ease;
+  }
+
+  .active-career .career-title,
+  .active-career .career-role,
+  .active-career span,
+  .active-career li span {
+    color: #000;
+  }
 }
