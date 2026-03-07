@@ -25,6 +25,14 @@ const TechStack = () => {
           >
             my tech stack
           </h2>
+
+          <p className="font-light text-xl sm:text-3xl leading-tight">
+            My expertise spans a diverse range of{" "}
+            <span className="font-normal bg-amber-300 ">technologies</span>,
+            enabling me to deliver comprehensive and{" "}
+            <span className="font-normal  bg-blue-300">cutting-edge</span>{" "}
+            solutions across various platforms.
+          </p>
         </header>
 
         <div className="inline-flex w-full flex-nowrap overflow-hidden mask-[linear-gradient(to_right,transparent_0,black_128px,black_calc(100%-128px),transparent_100%)]">
