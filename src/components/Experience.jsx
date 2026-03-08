@@ -14,22 +14,15 @@ const Experience = () => {
 
   const sectionRef = useRef(null);
   const previewRef = useRef(null);
+  const previewContainerRef = useRef(null);
 
   const calculateHeight = () => {
-    let difference;
-    const previewContainer = gsap.utils.toArray(".preview-container");
+    const container = previewContainerRef.current;
     const preview = previewRef.current;
 
-    if (!previewContainer) return;
+    if (!container || !preview) return 0;
 
-    previewContainer.forEach((el) => {
-      const previewContainerHeight = el.offsetHeight;
-      const previewHeight = preview.offsetHeight;
-
-      difference = previewContainerHeight - previewHeight;
-      console.log(previewContainerHeight, previewHeight, difference);
-    });
-    return difference;
+    return container.offsetHeight - preview.offsetHeight;
   };
 
   useGSAP(
@@ -37,32 +30,35 @@ const Experience = () => {
       if (!experiences?.length) return;
 
       const containers = gsap.utils.toArray(".career-item");
+      const translateHeight = calculateHeight();
 
       containers.forEach((container) => {
+        const position = Number(container.getAttribute("data-position"));
+
         ScrollTrigger.create({
           trigger: container,
           start: "top center",
           end: "bottom center",
           markers: true,
 
-          onEnter: () => activate(container),
-          onEnterBack: () => activate(container),
+          onEnter: () => activate(container, position),
+          onEnterBack: () => activate(container, position),
 
           onLeave: () => deactivate(container),
           onLeaveBack: () => deactivate(container),
         });
       });
 
-      function activate(container) {
+      function activate(container, position) {
         container.classList.add("active-career");
+
         const img = container.getAttribute("data-image");
-        const index = container.getAttribute("data-position");
-        const translateHeight = calculateHeight();
-        console.log(index, translateHeight);
         setImage(img);
 
         gsap.to(previewRef.current, {
-          y: index === 0 ? translateHeight : 0,
+          y: position === 0 ? 0 : translateHeight,
+          duration: 0.4,
+          ease: "power2.out",
         });
       }
 
@@ -74,10 +70,7 @@ const Experience = () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     },
-    {
-      scope: sectionRef,
-      dependencies: [experiences],
-    },
+    { scope: sectionRef, dependencies: [experiences] },
   );
 
   return (
@@ -133,7 +126,10 @@ const Experience = () => {
           </div>
 
           {/* Preview Image */}
-          <aside className="preview-container bg-amber-200 relative">
+          <aside
+            ref={previewContainerRef}
+            className="preview-container relative"
+          >
             <img
               ref={previewRef}
               src={image}
