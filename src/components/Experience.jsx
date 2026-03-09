@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Experience = () => {
   const { experiences } = useDataContext();
 
+  const [activeIndex, setActiveIndex] = useState(0);
   const [image, setImage] = useState(experiences?.[0]?.image || null);
 
   const sectionRef = useRef(null);
@@ -19,9 +20,7 @@ const Experience = () => {
   const calculateHeight = () => {
     const container = previewContainerRef.current;
     const preview = previewRef.current;
-
     if (!container || !preview) return 0;
-
     return container.offsetHeight - preview.offsetHeight;
   };
 
@@ -30,7 +29,42 @@ const Experience = () => {
       if (!experiences?.length) return;
 
       const containers = gsap.utils.toArray(".career-item");
-      const translateHeight = calculateHeight();
+      let translateHeight = calculateHeight();
+
+      // Recalculate on resize for responsiveness
+      const resizeObserver = new ResizeObserver(() => {
+        translateHeight = calculateHeight();
+      });
+      if (previewContainerRef.current) {
+        resizeObserver.observe(previewContainerRef.current);
+      }
+
+      function activate(container, position) {
+        // Remove active from all, then add to current
+        gsap.utils.toArray(".career-item").forEach((el) => {
+          el.classList.remove("active-career");
+          el.removeAttribute("aria-current");
+        });
+
+        container.classList.add("active-career");
+        container.setAttribute("aria-current", "true");
+
+        const img = container.getAttribute("data-image");
+        const idx = Number(position);
+        setImage(img);
+        setActiveIndex(idx);
+
+        gsap.to(previewRef.current, {
+          y: idx === 0 ? 0 : translateHeight,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      }
+
+      function deactivate(container) {
+        container.classList.remove("active-career");
+        container.removeAttribute("aria-current");
+      }
 
       containers.forEach((container) => {
         const position = Number(container.getAttribute("data-position"));
@@ -39,39 +73,23 @@ const Experience = () => {
           trigger: container,
           start: "top center",
           end: "bottom center",
-          markers: true,
 
           onEnter: () => activate(container, position),
           onEnterBack: () => activate(container, position),
-
           onLeave: () => deactivate(container),
           onLeaveBack: () => deactivate(container),
         });
       });
 
-      function activate(container, position) {
-        container.classList.add("active-career");
-
-        const img = container.getAttribute("data-image");
-        setImage(img);
-
-        gsap.to(previewRef.current, {
-          y: position === 0 ? 0 : translateHeight,
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      }
-
-      function deactivate(container) {
-        container.classList.remove("active-career");
-      }
-
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        resizeObserver.disconnect();
       };
     },
     { scope: sectionRef, dependencies: [experiences] },
   );
+
+  if (!experiences?.length) return null;
 
   return (
     <section ref={sectionRef} aria-labelledby="experience-heading">
@@ -93,7 +111,7 @@ const Experience = () => {
                 key={`${experience.company}-${experience.role}-${index}`}
                 data-image={experience.image}
                 data-position={index}
-                className="career-item inactive pb-12"
+                className="career-item inactive-item pb-12"
               >
                 <header className="career-description mb-3">
                   <h3 className="uppercase font-semibold text-xl sm:text-2xl md:text-3xl">
@@ -104,13 +122,19 @@ const Experience = () => {
                     {experience.role}
                   </p>
 
-                  <time className="italic text-sm sm:text-base block">
+                  <time
+                    dateTime={`${experience.startDate}/${experience.endDate}`}
+                    className="italic text-sm sm:text-base block"
+                  >
                     {experience.startDate} – {experience.endDate}
                   </time>
                 </header>
 
                 {experience.points?.length > 0 && (
-                  <ul className="career-pointers max-w-xl space-y-1 list-disc pl-5">
+                  <ul
+                    aria-label={`Responsibilities at ${experience.company}`}
+                    className="career-pointers max-w-xl space-y-1 list-disc pl-5 mb-5"
+                  >
                     {experience.points.map((point, pointIndex) => (
                       <li
                         key={`${experience.company}-point-${pointIndex}`}
@@ -121,19 +145,34 @@ const Experience = () => {
                     ))}
                   </ul>
                 )}
+
+                <div className="career-preview lg:hidden mt-4 aspect-square w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md">
+                  <img
+                    src={experience.image}
+                    alt={`${experience.company} — ${experience.role}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </article>
             ))}
           </div>
 
-          {/* Preview Image */}
+          {/* Sticky Preview Image — desktop only */}
           <aside
             ref={previewContainerRef}
-            className="preview-container relative"
+            aria-label="Experience preview image"
+            className="relative hidden lg:block"
           >
             <img
               ref={previewRef}
               src={image}
-              alt="Highlighted experience preview"
+              alt={
+                experiences[activeIndex]
+                  ? `${experiences[activeIndex].company} — ${experiences[activeIndex].role}`
+                  : "Experience preview"
+              }
               className="absolute inset-0 mx-auto w-full max-w-sm aspect-square object-cover rounded-md shadow-md"
               loading="lazy"
               decoding="async"

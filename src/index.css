@@ -17,8 +17,8 @@
     --accent-color: #d0e0e3;
   }
 
-  .inactive .career-description,
-  .inactive .career-pointers {
+  .inactive-item .career-description,
+  .inactive-item .career-pointers {
     color: #9ca3af;
     transition: color 0.3s ease;
   }
@@ -26,5 +26,12 @@
   .active-career .career-description,
   .active-career .career-pointers {
     color: #000;
+  }
+
+  .inactive-item .career-preview {
+    filter: grayscale(1);
+  }
+  .active-career .career-preview {
+    filter: grayscale(0);
   }
 }
