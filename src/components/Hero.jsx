@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import DownloadButton from "./DownloadButton";
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -81,6 +82,8 @@ const Hero = () => {
           <span className="block text-base sm:text-lg md:text-xl font-medium">
             Full-Stack Developer
           </span>
+
+          <DownloadButton />
         </div>
       </div>
     </section>
