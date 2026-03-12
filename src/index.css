@@ -13,6 +13,22 @@
     height: 100%;
   }
 
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-color: #f8fafc;
+
+    background-image:
+      linear-gradient(#dbe3ef 1px, transparent 1px),
+      linear-gradient(90deg, #dbe3ef 1px, transparent 1px);
+
+    background-size: 70px 70px;
+    background-position: center, center;
+  }
+
   :root {
     --accent-color: #d0e0e3;
   }

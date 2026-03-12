@@ -16,7 +16,7 @@ const TechStack = () => {
   }, []);
 
   return (
-    <section aria-labelledby="techstack-heading">
+    <section className="bg-white" aria-labelledby="techstack-heading">
       <div className="max-w-6xl mx-auto px-4 py-12 sm:py-14">
         <header className="text-center mb-12">
           <h2

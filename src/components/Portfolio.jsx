@@ -54,7 +54,7 @@ const Portfolio = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-gray-50"
+      className="bg-white"
       aria-labelledby="portfolio-heading"
     >
       <div className="max-w-7xl mx-auto px-4 py-14">
