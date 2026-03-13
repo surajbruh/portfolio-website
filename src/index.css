@@ -31,6 +31,11 @@
 
   :root {
     --accent-color: #d0e0e3;
+    --text-color: black;
+  }
+
+  .dark {
+    --text-color: white;
   }
 
   .inactive-item .career-description,
