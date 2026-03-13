@@ -14,8 +14,6 @@ const App = () => {
       <Header />
       <main>
         <Hero />
-        <Experience />
-        <Portfolio />
         <TechStack />
       </main>
       <Footer />
