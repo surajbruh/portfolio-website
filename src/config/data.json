@@ -121,30 +121,36 @@
   ],
   "experiences": [
     {
+      "logo": "/images/career/nuvexa-india.png",
       "image": "https://i.pinimg.com/736x/fc/f8/68/fcf8680186f7174793faef38b558215a.jpg",
       "company": "Nuvexa India Solutions LLP",
       "role": "Web Developer Intern",
       "startDate": "Nov 2025",
       "endDate": "Present",
+      "startISO": "2025-01",
+      "endISO": null,
       "points": [
-        "Manage domain purchases and configurations using providers such as Namecheap and GoDaddy.",
-        "Set up and manage professional business email services including Google Workspace and Titan Mail for clients.",
-        "Develop responsive business websites with a primary focus on frontend development.",
-        "Deploy client websites using Hostinger hosting infrastructure.",
-        "Successfully delivered 5–6 client projects including domain management, email setup, and website development."
+        "Developed and deployed 5+ production-ready business websites using React, Tailwind CSS, and Vite, ensuring responsive and high-performance user interfaces.",
+        "Built a RESTful contact-mail backend using Node.js, Express, and MongoDB (Mongoose) to validate, store, and archive contact form submissions.",
+        "Integrated email automation using Nodemailer and Forminit to handle client inquiries with database fallback support.",
+        "Managed full deployment lifecycle including domain configuration, DNS records (A, MX, TXT), and hosting setup using Namecheap, GoDaddy, Vercel, and Hostinger.",
+        "Delivered end-to-end client solutions including website development, domain management, email setup, and production deployment."
       ]
     },
     {
+      "logo": "/images/career/athena.png",
       "image": "https://i.pinimg.com/736x/61/26/28/6126283981edc77197b13a5e392d2223.jpg",
       "company": "Athena BPO Pvt Ltd",
       "role": "Telemarketing Sales Executive",
       "startDate": "Jul 2024",
       "endDate": "Feb 2025",
+      "startISO": "2024-07",
+      "endISO": "2025-02",
       "points": [
-        "Handled customer queries and provided product guidance over phone calls.",
-        "Promoted and sold financial products including Recurring Deposits and SIP investment plans.",
-        "Worked on the Standard Chartered Bank (SCB) process for customer outreach and sales.",
-        "Maintained professional communication with customers while achieving sales targets."
+        "Handled high-volume customer interactions for Standard Chartered Bank (SCB) campaigns, assisting clients with financial product inquiries.",
+        "Promoted and sold financial products including Recurring Deposits (RD) and SIP investment plans through outbound calls.",
+        "Maintained professional client communication while meeting daily sales and engagement targets.",
+        "Developed strong interpersonal communication and problem-solving skills in a fast-paced call center environment."
       ]
     }
   ]

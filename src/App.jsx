@@ -14,6 +14,8 @@ const App = () => {
       <Header />
       <main>
         <Hero />
+        <Career />
+        {/* <Experience /> */}
         <TechStack />
       </main>
       <Footer />
