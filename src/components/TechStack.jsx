@@ -21,7 +21,7 @@ const TechStack = () => {
         <header className="text-center mb-12">
           <h2
             id="techstack-heading"
-            className="relative font-semibold uppercase text-2xl sm:text-3xl mb-4"
+            className="relative uppercase text-2xl sm:text-3xl mb-4"
           >
             my tech stack
           </h2>
