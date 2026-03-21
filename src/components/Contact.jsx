@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [status, setStatus] = useState("idle");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    // simulate submit (replace with API)
+    setTimeout(() => {
+      setStatus("success");
+    }, 1000);
+  };
+
   return (
     <section className="bg-white" aria-labelledby="contact-heading">
       <div className="max-w-5xl mx-auto px-4 py-12 sm:py-14">
         {/* Header */}
         <header className="mb-6">
-          <span className="bg-(--accent-color) italic font-light text-xl sm:text-3xl leading-tight">
-            let's chat
-          </span>
-          <h2 id="contact-heading" className="uppercase text-2xl sm:text-3xl">
+          <p className="bg-(--accent-color) italic font-light text-xl sm:text-3xl inline-block px-2">
+            let’s connect!
+          </p>
+
+          <h2
+            id="contact-heading"
+            className="uppercase text-2xl sm:text-3xl"
+          >
             Contact Me.
           </h2>
         </header>
 
         {/* Form */}
         <form
+          onSubmit={handleSubmit}
           className="space-y-5"
-          method="POST"
           aria-describedby="contact-description"
         >
           <p id="contact-description" className="sr-only">
@@ -74,20 +90,30 @@ const Contact = () => {
             />
           </div>
 
+          {/* Status */}
+          <div aria-live="polite" className="text-sm">
+            {status === "loading" && <p>Sending...</p>}
+            {status === "success" && (
+              <p className="text-green-600">Message sent successfully!</p>
+            )}
+          </div>
+
           {/* Submit */}
           <button
             type="submit"
+            disabled={status === "loading"}
             className="
               w-full inline-flex items-center justify-center
               px-6 py-2.5
               bg-black text-white
               uppercase text-sm font-medium
               hover:bg-gray-800
+              disabled:opacity-60
               transition
               focus:outline-none focus-visible:ring-2 focus-visible:ring-black
             "
           >
-            Send Message
+            {status === "loading" ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

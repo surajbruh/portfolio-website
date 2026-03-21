@@ -41,8 +41,8 @@
       "description": "Nuvexa India Solutions LLP offers comprehensive IT solutions, including software development, digital marketing, and HR services designed to help businesses streamline operations and accelerate growth in a competitive digital environment.",
       "image": "/images/websites/nuvexaindia.png",
       "year": 2024,
-      "role": "Development & Website Deployment",
-      "technologies": "React, TailwindCSS, Git, Vite"
+      "role": ["Development", " Website Deployment"],
+      "technologies": ["React", "TailwindCSS", "Git", "Vite"]
     },
     {
       "websiteURL": "https://navilshipping.com/",
@@ -50,8 +50,8 @@
       "description": "Navil Shipping & Logistics delivers reliable freight forwarding, international shipping, and end-to-end logistics solutions that support efficient global trade and supply chain management.",
       "image": "/images/websites/navilshipping.png",
       "year": 2024,
-      "role": "Domain Administration & Frontend Development",
-      "technologies": "React, TailwindCSS, Git, Vite"
+      "role": ["Development", " Website Deployment"],
+      "technologies": ["React", "TailwindCSS", "Git", "Vite"]
     },
     {
       "websiteURL": "https://petroflexfze.com/",
@@ -59,8 +59,8 @@
       "description": "Petroflex FZE is a global petrochemical trading company specializing in the supply and distribution of high-quality energy and industrial raw materials for international markets.",
       "image": "/images/websites/petroflexfze.png",
       "year": 2024,
-      "role": "Website Development & Technical Setup",
-      "technologies": "React, TailwindCSS, Git, Vite"
+      "role": ["Development", " Website Deployment"],
+      "technologies": ["React", "TailwindCSS", "Git", "Vite"]
     },
     {
       "websiteURL": "https://fortifytrdllc.com/",
@@ -68,8 +68,8 @@
       "description": "Fortify Trading LLC provides dependable international trading services, focusing on strategic sourcing, efficient logistics, and building long-term partnerships with clients worldwide.",
       "image": "/images/websites/fortifytrdllc.png",
       "year": 2025,
-      "role": "Frontend Development & Deployment",
-      "technologies": "React, TailwindCSS, Git, Vite"
+      "role": ["Development", " Website Deployment"],
+      "technologies": ["React", "TailwindCSS", "Git", "Vite"]
     },
     {
       "websiteURL": "https://elviorallc.com/",
@@ -77,8 +77,8 @@
       "description": "Elviora LLC is a diversified global trading company delivering premium products and reliable supply chain solutions with a strong focus on quality, efficiency, and customer satisfaction.",
       "image": "/images/websites/elviorallc.png",
       "year": 2025,
-      "role": "Website Development & Domain Setup",
-      "technologies": "React, TailwindCSS, Git, Vite"
+      "role": ["Development", " Website Deployment"],
+      "technologies": ["React", "TailwindCSS", "Git", "Vite"]
     }
   ],
   "technologies": [
