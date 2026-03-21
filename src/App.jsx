@@ -8,6 +8,7 @@ import Career from "./components/Career";
 import Test from "./components/Test";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
+import Exp from "./components/Exp";
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <Hero />
         {/* <Experience /> */}
         {/* <Career /> */}
-        <Portfolio />
+        {/* <Portfolio /> */}
+        <Exp />
         <TechStack />
         <Contact />
       </main>

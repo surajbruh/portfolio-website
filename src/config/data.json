@@ -126,15 +126,34 @@
       "company": "Nuvexa India Solutions LLP",
       "role": "Web Developer Intern",
       "startDate": "Nov 2025",
-      "endDate": "Present",
+      "endDate": "Apr 2026",
       "startISO": "2025-01",
-      "endISO": null,
+      "endISO": "2026-04",
       "points": [
-        "Developed and deployed 5+ production-ready business websites using React, Tailwind CSS, and Vite, ensuring responsive and high-performance user interfaces.",
-        "Built a RESTful contact-mail backend using Node.js, Express, and MongoDB (Mongoose) to validate, store, and archive contact form submissions.",
-        "Integrated email automation using Nodemailer and Forminit to handle client inquiries with database fallback support.",
-        "Managed full deployment lifecycle including domain configuration, DNS records (A, MX, TXT), and hosting setup using Namecheap, GoDaddy, Vercel, and Hostinger.",
-        "Delivered end-to-end client solutions including website development, domain management, email setup, and production deployment."
+        "Delivered end-to-end client solutions including website development, domain management, email setup, and production deployment.",
+        "Managed full deployment lifecycle including domain configuration, DNS records (A, MX, TXT), and hosting setup using Namecheap, GoDaddy, Vercel, and Hostinger."
+      ],
+      "technologies": [
+        {
+          "icon": "/svg/technologies/mongodb.svg",
+          "label": "mongodb"
+        },
+        {
+          "icon": "/svg/technologies/express.svg",
+          "label": "express"
+        },
+        {
+          "icon": "/svg/technologies/react.svg",
+          "label": "react"
+        },
+        {
+          "icon": "/svg/technologies/nodejs.svg",
+          "label": "nodejs"
+        },
+        {
+          "icon": "/svg/technologies/git.svg",
+          "label": "git"
+        }
       ]
     },
     {
@@ -149,8 +168,7 @@
       "points": [
         "Handled high-volume customer interactions for Standard Chartered Bank (SCB) campaigns, assisting clients with financial product inquiries.",
         "Promoted and sold financial products including Recurring Deposits (RD) and SIP investment plans through outbound calls.",
-        "Maintained professional client communication while meeting daily sales and engagement targets.",
-        "Developed strong interpersonal communication and problem-solving skills in a fast-paced call center environment."
+        "Maintained professional client communication while meeting daily sales and engagement targets."
       ]
     }
   ]
