@@ -29,7 +29,7 @@ const ThemeToggle = () => {
         src={isDarkThemed ? "/svg/dark-theme.svg" : "/svg/light-theme.svg"}
         alt="Theme toggle icon"
         loading="lazy"
-        className="w-6 h-6 sm:w-7 sm:h-7 object-contain transition-transform duration-200 hover:scale-110 hover:opacity-80"
+        className={`w-6 h-6 sm:w-7 sm:h-7 object-contain transition-transform duration-200 hover:scale-110 hover:opacity-80 ${isDarkThemed && "invert-100"}`}
       />
     </button>
   );

@@ -4,7 +4,7 @@ const Footer = () => {
   const { socials } = useDataContext();
 
   return (
-    <footer className="relative bg-(--accent-color) overflow-hidden">
+    <footer className="relative bg-(--primary-bg) overflow-hidden">
       <div className="relative z-10">
         <div className="py-14">
           {/* Social Links */}
@@ -32,7 +32,7 @@ const Footer = () => {
             </ul>
           </nav>
 
-          <div className="py-4 text-center text-sm font-mono">
+          <div className="py-4 text-(--primary-text) text-center text-sm font-mono">
             © {new Date().getFullYear()} Suraj Yadav — Crafted with care
           </div>
         </div>

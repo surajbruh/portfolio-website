@@ -9,7 +9,7 @@ const Exp = () => {
     <section className="" aria-labelledby="experience-heading">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:py-14">
         <div className="max-w-2xl mx-auto">
-          <header className="text-center mb-12">
+          <header className="text-(--primary-text) text-center mb-12">
             <h2
               id="experience-heading"
               className="relative uppercase text-2xl sm:text-3xl"
@@ -46,17 +46,17 @@ const Exp = () => {
                     <div>
                       <h3
                         id={`exp-${index}-company`}
-                        className="uppercase text-xl sm:text-2xl"
+                        className="uppercase text-(--primary-text) text-xl sm:text-2xl"
                       >
                         {experience.company}
                       </h3>
 
-                      <p className="capitalize text-base sm:text-lg">
+                      <p className="capitalize text-(--primary-text) text-base sm:text-lg">
                         {experience.role}
                       </p>
 
                       <time
-                        className="italic text-sm sm:text-base block"
+                        className="italic text-(--secondary-text) text-sm sm:text-base block"
                         dateTime={`${experience.startISO}/${experience.endISO || "present"}`}
                       >
                         {experience.startDate} –{" "}
@@ -97,7 +97,7 @@ const Exp = () => {
                         Responsibilities at {experience.company}
                       </h4>
 
-                      <ul className="space-y-1 list-disc pl-5 mb-5">
+                      <ul className="text-(--primary-text) space-y-1 list-disc pl-5 mb-5">
                         {experience.points.map((point, pointIndex) => (
                           <li
                             key={`${experience.company}-point-${pointIndex}`}

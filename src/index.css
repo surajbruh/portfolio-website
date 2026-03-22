@@ -19,11 +19,11 @@
     inset: 0;
     z-index: -1;
 
-    background-color: #f8fafc;
+    background-color: var(--secondary-bg);
 
     background-image:
-      linear-gradient(#dbe3ef 1px, transparent 1px),
-      linear-gradient(90deg, #dbe3ef 1px, transparent 1px);
+      linear-gradient(var(--bg-accent) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-accent) 1px, transparent 1px);
 
     background-size: 70px 70px;
     background-position: center, center;
@@ -31,11 +31,52 @@
 
   :root {
     --accent-color: #d0e0e3;
-    --text-color: black;
+
+    /* background */
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8fafc;
+    --tertiary-bg: #f3f4f6;
+
+    --bg-accent: #d0e0e3;
+
+    /* text */
+    --primary-text: #000000;
+    --secondary-text: #364153;
+    --tertiary-text: #1e2939;
+
+    --placeholder-text: #7c7d92;
+
+    /* highlights */
+    --primary-highlight: oklch(87.9% 0.169 91.605);
+    --secondary-highlight: oklch(80.9% 0.105 251.813);
+    --tertiary-highlight: oklch(89.558% 0.0177 210.48);
+
+    /* border */
+    --primary-border: #000000;
+    --secondary-border: #003a77;
   }
 
   .dark {
-    --text-color: white;
+    --primary-bg: #0d0d0d;
+    --secondary-bg: #1a1a1a;
+    --tertiary-bg: #262626;
+
+    --bg-accent: rgba(255, 255, 255, 0.1);
+
+    --primary-text: #e8e6e3;
+    --secondary-text: #AEB7A0;
+    --tertiary-text: #e8e6e3;
+
+    --placeholder-text: #696764;
+
+    /* highlights */
+    --primary-highlight: #836700;
+    --secondary-highlight: #003a77;
+    --tertiary-highlight: #24383c;
+
+    /* border */
+    --primary-border: #8c8273;
+    --secondary-border: #003a77;
   }
 
   .inactive-item .career-description,

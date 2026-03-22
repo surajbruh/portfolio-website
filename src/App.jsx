@@ -9,7 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 const App = () => {
   return (
     <>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Header />
       <main>
         <Hero />

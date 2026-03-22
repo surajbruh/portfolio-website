@@ -16,9 +16,12 @@ const TechStack = () => {
   }, []);
 
   return (
-    <section className="bg-white" aria-labelledby="techstack-heading">
+    <section
+      className="bg-(--secondary-bg)"
+      aria-labelledby="techstack-heading"
+    >
       <div className="max-w-6xl mx-auto px-4 py-12 sm:py-14">
-        <header className="text-center mb-12">
+        <header className="text-(--primary-text) text-center mb-12">
           <h2
             id="techstack-heading"
             className="relative uppercase text-2xl sm:text-3xl mb-4"
@@ -28,9 +31,13 @@ const TechStack = () => {
 
           <p className="font-light text-xl sm:text-3xl leading-tight">
             My expertise spans a diverse range of{" "}
-            <span className="font-normal bg-amber-300 ">technologies</span>,
-            enabling me to deliver comprehensive and{" "}
-            <span className="font-normal  bg-blue-300">cutting-edge</span>{" "}
+            <span className="font-normal bg-(--primary-highlight)">
+              technologies
+            </span>
+            , enabling me to deliver comprehensive and{" "}
+            <span className="font-normal  bg-(--secondary-highlight)">
+              cutting-edge
+            </span>{" "}
             solutions across various platforms.
           </p>
         </header>

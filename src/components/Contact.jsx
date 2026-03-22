@@ -14,18 +14,15 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-white" aria-labelledby="contact-heading">
+    <section className="bg-(--secondary-bg)" aria-labelledby="contact-heading">
       <div className="max-w-5xl mx-auto px-4 py-12 sm:py-14">
         {/* Header */}
-        <header className="mb-6">
-          <p className="bg-(--accent-color) italic font-light text-xl sm:text-3xl inline-block px-2">
+        <header className="text-(--primary-text) mb-6">
+          <p className="bg-(--tertiary-highlight) italic font-light text-xl sm:text-3xl inline-block px-2">
             let’s connect!
           </p>
 
-          <h2
-            id="contact-heading"
-            className="uppercase text-2xl sm:text-3xl"
-          >
+          <h2 id="contact-heading" className="uppercase text-2xl sm:text-3xl">
             Contact Me.
           </h2>
         </header>
@@ -53,7 +50,7 @@ const Contact = () => {
                 required
                 autoComplete="name"
                 placeholder="Name"
-                className="w-full px-2 py-2 border-b border-black outline-none focus:border-red-500 transition"
+                className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-red-500 transition"
               />
             </div>
 
@@ -68,7 +65,7 @@ const Contact = () => {
                 required
                 autoComplete="email"
                 placeholder="Email"
-                className="w-full px-2 py-2 border-b border-black outline-none focus:border-red-500 transition"
+                className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-red-500 transition"
               />
             </div>
           </div>
@@ -86,7 +83,7 @@ const Contact = () => {
               autoComplete="off"
               spellCheck={false}
               placeholder="Got feedback, job opportunities, or just want to say hi? I’d love to hear from you 😊"
-              className="w-full px-2 py-2 border border-black resize-none outline-none focus:border-red-500 transition"
+              className="w-full px-2 py-2 border border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) resize-none outline-none focus:border-red-500 transition"
             />
           </div>
 

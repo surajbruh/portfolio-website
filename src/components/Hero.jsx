@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="uppercase space-y-4 text-center sm:text-left">
+        <div className="uppercase space-y-4 text-(--primary-text) text-center sm:text-left">
           <span className="block text-base sm:text-lg md:text-xl">
             I'm Suraj Yadav, and I enjoy
           </span>
