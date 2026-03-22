@@ -66,7 +66,7 @@ const Exp = () => {
 
                     {experience.technologies?.length > 0 && (
                       <section aria-label="Technologies and tools">
-                        <h4 className="capitalize text-[18px]">
+                        <h4 className="capitalize text-(--primary-text) text-[18px]">
                           Technologies & tools
                         </h4>
 

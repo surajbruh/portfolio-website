@@ -17,7 +17,7 @@ const Contact = () => {
     <section className="bg-(--secondary-bg)" aria-labelledby="contact-heading">
       <div className="max-w-5xl mx-auto px-4 py-12 sm:py-14">
         {/* Header */}
-        <header className="text-(--primary-text) mb-6">
+        <header className="text-(--primary-text) mb-12">
           <p className="bg-(--tertiary-highlight) italic font-light text-xl sm:text-3xl inline-block px-2">
             let’s connect!
           </p>
