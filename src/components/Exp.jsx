@@ -1,8 +1,12 @@
 import useDataContext from "../contexts/DataContext";
+
 const Exp = () => {
   const { experiences } = useDataContext();
+
+  if (!experiences || experiences.length === 0) return null;
+
   return (
-    <section className="">
+    <section className="" aria-labelledby="experience-heading">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:py-14">
         <div className="max-w-2xl mx-auto">
           <header className="text-center mb-12">
@@ -14,86 +18,101 @@ const Exp = () => {
             </h2>
           </header>
 
-          {experiences.map((experience, index) => (
-            <article
-              key={`${experience.company}-${experience.role}`}
-              data-image={experience.image}
-              data-position={index}
-              className="relative block sm:flex gap-4"
-            >
-              {/* Company Logo */}
-              {experience.logo && (
-                <div className="shrink-0">
-                  <img
-                    src={experience.logo}
-                    alt={`${experience.company} logo`}
-                    className="h-20 aspect-square object-contain rounded-full bg-white border border-gray-300"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-
-              {/* Company Info */}
-              <div>
-                <header className="mb-3">
-                  <div>
-                    <h3 className="uppercase text-xl sm:text-2xl">
-                      {experience.company}
-                    </h3>
-
-                    <p className="capitalize text-base sm:text-lg">
-                      {experience.role}
-                    </p>
-
-                    <time
-                      className="italic text-sm sm:text-base block"
-                      dateTime={`${experience.startISO}/${experience.endISO || "present"}`}
-                    >
-                      {experience.startDate} – {experience.endDate}
-                    </time>
+          <div className="space-y-10">
+            {experiences.map((experience, index) => (
+              <article
+                key={`${experience.company}-${experience.role}-${index}`}
+                data-image={experience.image}
+                data-position={index}
+                className="relative block sm:flex gap-4"
+                aria-labelledby={`exp-${index}-company`}
+              >
+                {/* Company Logo */}
+                {experience.logo && (
+                  <div className="shrink-0 mb-3 sm:mb-0">
+                    <img
+                      src={experience.logo}
+                      alt={`${experience.company} logo`}
+                      className="h-20 w-20 object-contain rounded-full bg-white border border-gray-300"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
+                )}
 
-                  {experience.technologies && (
+                {/* Company Info */}
+                <div className="w-full">
+                  <header className="mb-3">
                     <div>
-                      <h1 className="capitalize text-[18px]">
-                        technologies & tools
-                      </h1>
-                      <ul className="flex gap-2">
-                        {experience.technologies?.map((item, index) => (
-                          <li key={`tech-${item.label}-${index}`}>
-                            <img
-                              className="aspect-square w-full max-w-9 object-contain"
-                              src={item.icon}
-                              alt={`${item.label} logo`}
-                              loading="lazy"
-                              decoding="async"
-                            />
+                      <h3
+                        id={`exp-${index}-company`}
+                        className="uppercase text-xl sm:text-2xl"
+                      >
+                        {experience.company}
+                      </h3>
+
+                      <p className="capitalize text-base sm:text-lg">
+                        {experience.role}
+                      </p>
+
+                      <time
+                        className="italic text-sm sm:text-base block"
+                        dateTime={`${experience.startISO}/${experience.endISO || "present"}`}
+                      >
+                        {experience.startDate} –{" "}
+                        {experience.endDate || "Present"}
+                      </time>
+                    </div>
+
+                    {experience.technologies?.length > 0 && (
+                      <section aria-label="Technologies and tools">
+                        <h4 className="capitalize text-[18px]">
+                          Technologies & tools
+                        </h4>
+
+                        <ul className="flex flex-wrap gap-2 mt-1">
+                          {experience.technologies.map((item, techIndex) => (
+                            <li key={`tech-${item.label}-${techIndex}`}>
+                              <img
+                                className="w-8 h-8 object-contain"
+                                src={item.icon}
+                                alt={item.label}
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
+                    )}
+                  </header>
+
+                  {/* Responsibilities */}
+                  {experience.points?.length > 0 && (
+                    <section aria-labelledby={`exp-${index}-responsibilities`}>
+                      <h4
+                        id={`exp-${index}-responsibilities`}
+                        className="sr-only"
+                      >
+                        Responsibilities at {experience.company}
+                      </h4>
+
+                      <ul className="space-y-1 list-disc pl-5 mb-5">
+                        {experience.points.map((point, pointIndex) => (
+                          <li
+                            key={`${experience.company}-point-${pointIndex}`}
+                            className="text-base sm:text-[18px] leading-tight"
+                          >
+                            {point}
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </section>
                   )}
-                </header>
-
-                {/* Responsibilities */}
-                {experience.points?.length > 0 && (
-                  <ul
-                    aria-label={`Responsibilities at ${experience.company}`}
-                    className="space-y-1 list-disc pl-5 mb-5"
-                  >
-                    {experience.points.map((point, pointIndex) => (
-                      <li
-                        key={`${experience.company}-point-${pointIndex}`}
-                        className="text-base sm:text-[18px] leading-tight"
-                      >
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </article>
-          ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
