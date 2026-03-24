@@ -53,7 +53,8 @@
 
     /* border */
     --primary-border: #000000;
-    --secondary-border: #003a77;
+    --secondary-border: #e5e7eb;
+    --tertiary-border: #d1d5dc;
   }
 
   .dark {
@@ -64,7 +65,7 @@
     --bg-accent: rgba(255, 255, 255, 0.1);
 
     --primary-text: #e8e6e3;
-    --secondary-text: #AEB7A0;
+    --secondary-text: #aeb7a0;
     --tertiary-text: #e8e6e3;
 
     --placeholder-text: #696764;
@@ -77,6 +78,7 @@
     /* border */
     --primary-border: #8c8273;
     --secondary-border: #003a77;
+    --tertiary-border: rgb(60, 60, 60);
   }
 
   .inactive-item .career-description,

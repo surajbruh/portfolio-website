@@ -5,7 +5,8 @@ import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 import Exp from "./components/Exp";
 import ScrollToTop from "./components/ScrollToTop";
-
+import Projects from "./components/Projects";
+import Portfolio from "./components/Portfolio";
 const App = () => {
   return (
     <>
@@ -14,6 +15,7 @@ const App = () => {
       <main>
         <Hero />
         <Exp />
+        <Projects />
         <TechStack />
         <Contact />
       </main>
