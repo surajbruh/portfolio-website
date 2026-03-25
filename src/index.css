@@ -98,4 +98,25 @@
   .active-career .career-preview {
     filter: grayscale(0);
   }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(0); /* Original size */
+    }
+
+    100% {
+      transform: translateX(100%); /* Back to original size */
+    }
+  }
+
+  /* loader */
+  .loader::after {
+    content: "";
+    background-color: red;
+    width: 10%;
+    position: absolute;
+    inset: 0;
+
+    animation: loading 3 infinite normal ease;
+  }
 }

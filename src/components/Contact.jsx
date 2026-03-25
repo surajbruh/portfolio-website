@@ -1,16 +1,69 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
+import { Forminit } from "forminit";
+
+const forminit = new Forminit();
+const FORM_ID = "ych9f9v6w4o";
+
+const initialState = {
+  name: "",
+  email: "",
+  message: "",
+};
 
 const Contact = () => {
-  const [status, setStatus] = useState("idle");
+  const [formData, setFormData] = useState(initialState);
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  // const [error, setError] = useState("");
+  const errorRef = useRef("");
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("loading");
 
-    // simulate submit (replace with API)
-    setTimeout(() => {
+    if (!FORM_ID) {
+      setStatus("error");
+      errorRef.current = "Form configuration error. Please try again later.";
+      // setError("Form configuration error. Please try again later.");
+      return;
+    }
+
+    try {
+      setStatus("loading");
+      errorRef.current = "";
+      // setError("");
+
+      const response = await forminit.submit(FORM_ID, {
+        blocks: [
+          {
+            type: "sender",
+            properties: {
+              fullName: formData.name,
+              email: formData.email,
+            },
+          },
+          {
+            type: "text",
+            name: "message",
+            value: formData.message,
+          },
+        ],
+      });
+
+      if (response?.error) {
+        throw new Error(response.error.message);
+      }
+
       setStatus("success");
-    }, 1000);
+      setFormData(initialState);
+    } catch (err) {
+      setStatus("error");
+      errorRef.current = err.message || "Something went wrong.";
+      // setError(err.message || "Something went wrong.");
+    }
   };
 
   return (
@@ -48,6 +101,8 @@ const Contact = () => {
                 name="name"
                 type="text"
                 required
+                onChange={handleChange}
+                value={formData.name}
                 autoComplete="name"
                 placeholder="Name"
                 className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-red-500 transition"
@@ -63,6 +118,8 @@ const Contact = () => {
                 name="email"
                 type="email"
                 required
+                onChange={handleChange}
+                value={formData.email}
                 autoComplete="email"
                 placeholder="Email"
                 className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-red-500 transition"
@@ -80,6 +137,8 @@ const Contact = () => {
               name="message"
               rows={4}
               required
+              onChange={handleChange}
+              value={formData.message}
               autoComplete="off"
               spellCheck={false}
               placeholder="Got feedback, job opportunities, or just want to say hi? I’d love to hear from you 😊"
@@ -89,9 +148,20 @@ const Contact = () => {
 
           {/* Status */}
           <div aria-live="polite" className="text-sm">
-            {status === "loading" && <p>Sending...</p>}
+            {/* {status === "loading" && <p>Sending...</p>} */}
+            {status === "error" && (
+              <p
+                role="alert"
+                className="capitalize text-sm text-red-600 font-medium"
+              >
+                something went wrong!
+              </p>
+            )}
+
             {status === "success" && (
-              <p className="text-green-600">Message sent successfully!</p>
+              <p role="status" className="text-sm text-green-600 font-medium">
+                Message sent successfully!
+              </p>
             )}
           </div>
 
