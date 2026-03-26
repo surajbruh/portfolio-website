@@ -37,6 +37,9 @@
     --secondary-bg: #f8fafc;
     --tertiary-bg: #f3f4f6;
 
+    --inverse-bg: #262626;
+    --inverse-text: #e8e6e3;
+
     --bg-accent: #d0e0e3;
 
     /* text */
@@ -61,6 +64,9 @@
     --primary-bg: #0d0d0d;
     --secondary-bg: #1a1a1a;
     --tertiary-bg: #262626;
+
+    --inverse-bg: #f3f4f6;
+    --inverse-text: #000000;
 
     --bg-accent: rgba(255, 255, 255, 0.1);
 
