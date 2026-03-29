@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import useDataContext from "../contexts/DataContext";
+import ThemeContext from "../contexts/ThemeContext";
 
 const Footer = () => {
+  const { isDarkThemed } = useContext(ThemeContext);
   const { socials } = useDataContext();
 
   return (
@@ -24,7 +27,9 @@ const Footer = () => {
                       alt={`${social.label} icon`}
                       loading="lazy"
                       decoding="async"
-                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-transform duration-200 hover:scale-110 hover:opacity-80"
+                      className={`${
+                        social.invert && isDarkThemed ? "invert-100" : null
+                      } w-5 h-5 sm:w-6 sm:h-6 object-contain transition-transform duration-200 hover:scale-110 hover:opacity-80`}
                     />
                   </a>
                 </li>

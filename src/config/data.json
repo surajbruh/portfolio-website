@@ -26,7 +26,8 @@
     {
       "icon": "/svg/socials/github.svg",
       "link": "https://github.com/surajbruh",
-      "label": "Instagram"
+      "label": "GitHub",
+      "invert": true
     }
   ],
   "websites": [
@@ -99,7 +100,8 @@
     },
     {
       "icon": "/svg/technologies/express.svg",
-      "label": "express"
+      "label": "express",
+      "invert": true
     },
     {
       "icon": "/svg/technologies/mongodb.svg",
@@ -135,7 +137,8 @@
         },
         {
           "icon": "/svg/technologies/express.svg",
-          "label": "express"
+          "label": "express",
+          "invert": true
         },
         {
           "icon": "/svg/technologies/react.svg",

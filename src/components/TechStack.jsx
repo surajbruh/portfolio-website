@@ -3,7 +3,11 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
+import { useContext } from "react";
+import ThemeContext from "../contexts/ThemeContext";
+
 const TechStack = () => {
+  const { isDarkThemed } = useContext(ThemeContext);
   const { technologies } = useDataContext();
 
   useGSAP(() => {
@@ -47,7 +51,9 @@ const TechStack = () => {
             {technologies?.map((item, index) => (
               <li key={`tech-${item.label}-${index}`}>
                 <img
-                  className="aspect-square w-full max-w-10 sm:max-w-12 md:max-w-14 mx-6 sm:mx-8 object-contain"
+                  className={`${
+                    item.invert && isDarkThemed ? "invert-100" : null
+                  } aspect-square w-full max-w-10 sm:max-w-12 md:max-w-14 mx-6 sm:mx-8 object-contain`}
                   src={item.icon}
                   alt={`${item.label} logo`}
                   loading="lazy"
@@ -64,7 +70,9 @@ const TechStack = () => {
             {technologies?.map((item, index) => (
               <li key={`tech-duplicate-${item.label}-${index}`}>
                 <img
-                  className="aspect-square w-full max-w-10 sm:max-w-12 md:max-w-14 mx-6 sm:mx-8 object-contain"
+                  className={`${
+                    item.invert && isDarkThemed ? "invert-100" : null
+                  } aspect-square w-full max-w-10 sm:max-w-12 md:max-w-14 mx-6 sm:mx-8 object-contain`}
                   src={item.icon}
                   alt=""
                   loading="lazy"

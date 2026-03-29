@@ -1,6 +1,9 @@
 import useDataContext from "../contexts/DataContext";
+import { useContext } from "react";
+import ThemeContext from "../contexts/ThemeContext";
 
 const Exp = () => {
+  const { isDarkThemed } = useContext(ThemeContext);
   const { experiences } = useDataContext();
 
   if (!experiences || experiences.length === 0) return null;
@@ -43,7 +46,7 @@ const Exp = () => {
                 {/* Company Info */}
                 <div className="w-full">
                   <header className="mb-3">
-                    <div>
+                    <div className="mb-2">
                       <h3
                         id={`exp-${index}-company`}
                         className="uppercase text-(--primary-text) text-xl sm:text-2xl"
@@ -74,7 +77,11 @@ const Exp = () => {
                           {experience.technologies.map((item, techIndex) => (
                             <li key={`tech-${item.label}-${techIndex}`}>
                               <img
-                                className="w-8 h-8 object-contain"
+                                className={`${
+                                  item.invert && isDarkThemed
+                                    ? "invert-100"
+                                    : null
+                                } w-8 h-8 object-contain`}
                                 src={item.icon}
                                 alt={item.label}
                                 loading="lazy"

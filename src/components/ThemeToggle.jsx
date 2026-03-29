@@ -1,13 +1,8 @@
-import { useState } from "react";
+import { useContext } from "react";
+import ThemeContext from "../contexts/ThemeContext";
 
 const ThemeToggle = () => {
-  const [isDarkThemed, setIsDarkThemed] = useState(() => {
-    const storedTheme = localStorage.getItem("dark-theme") === "true";
-
-    storedTheme && document.documentElement.classList.add("dark");
-
-    return storedTheme;
-  });
+  const { isDarkThemed, setIsDarkThemed } = useContext(ThemeContext);
 
   const handleClick = () => {
     const newTheme = !isDarkThemed;

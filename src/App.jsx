@@ -6,24 +6,32 @@ import Projects from "./components/Projects";
 import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 
-/*
-1. attach the final resume
-2. fix svg icons
-3. update the data.json file with relevant information
-*/
+import { useState } from "react";
+import ThemeContext from "./contexts/ThemeContext";
 
 const App = () => {
+  // themeToggle
+  const [isDarkThemed, setIsDarkThemed] = useState(() => {
+    const storedTheme = localStorage.getItem("dark-theme") === "true";
+
+    storedTheme && document.documentElement.classList.add("dark");
+
+    return storedTheme;
+  });
+
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <Exp />
-        <Projects />
-        <TechStack />
-        <Contact />
-      </main>
-      <Footer />
+      <ThemeContext value={{ isDarkThemed, setIsDarkThemed }}>
+        <Header />
+        <main>
+          <Hero />
+          <Exp />
+          <Projects />
+          <TechStack />
+          <Contact />
+        </main>
+        <Footer />
+      </ThemeContext>
     </>
   );
 };

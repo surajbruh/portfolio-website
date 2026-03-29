@@ -90,9 +90,9 @@ const Projects = () => {
                     </a>
                   )}
 
-                  {website.websiteURL && (
+                  {website.repoURL && (
                     <a
-                      href={website.websiteURL}
+                      href={website.repoURL}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Visit ${website.title || "project"} github repository`}
