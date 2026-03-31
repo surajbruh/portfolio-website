@@ -105,7 +105,7 @@ const Contact = () => {
                 value={formData.name}
                 autoComplete="name"
                 placeholder="Name"
-                className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-red-500 transition"
+                className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-blue-500 transition"
               />
             </div>
 
@@ -122,7 +122,7 @@ const Contact = () => {
                 value={formData.email}
                 autoComplete="email"
                 placeholder="Email"
-                className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-red-500 transition"
+                className="w-full px-2 py-2 border-b border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) outline-none focus:border-blue-500 transition"
               />
             </div>
           </div>
@@ -142,7 +142,7 @@ const Contact = () => {
               autoComplete="off"
               spellCheck={false}
               placeholder="Got feedback, job opportunities, or just want to say hi? I’d love to hear from you 😊"
-              className="w-full px-2 py-2 border border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) resize-none outline-none focus:border-red-500 transition"
+              className="w-full px-2 py-2 border border-(--primary-border) placeholder:text-(--placeholder-text) text-(--primary-text) resize-none outline-none focus:border-blue-500 transition"
             />
           </div>
 
